@@ -1,10 +1,10 @@
 import chn.util.*;
 import java.util.Random;
 /**
- * Write a description of class KnightDriver here.
+ * Tries to complete the Knight's Tour
  *
- * @author (your name)
- * @version (a version number or a date)
+ * @Anshul 
+ * @v1
  */
 public class KnightDriver
 {

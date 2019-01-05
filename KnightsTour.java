@@ -1,9 +1,9 @@
 import apcslib.*;
 /**
- * Write a description of class KnightsTour here.
+ * Necessary methods for the KnightsTour to run
  *
- * @author (your name)
- * @version (a version number or a date)
+ * @Anshul
+ * @v1
  */
 /*
   This program will start the knight chess piece at a corner of the
