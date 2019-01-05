@@ -1,4 +1,4 @@
-
+import apcslib.*;
 /**
  * Write a description of class KnightsTour here.
  *
@@ -86,7 +86,8 @@ class KnightsTour
         {
             for (int row = 1; row<9; row++)
             {
-                System.out.print(" " + masterBoard[co][row]);
+                System.out.print("  " + 
+                        Format.right((masterBoard[co][row]),2));
             }
            System.out.println();
         }

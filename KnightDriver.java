@@ -21,7 +21,7 @@ public class KnightDriver
         moveCheck[0] = 1;
           while(mainCheck)
         {
-            number = randy.nextInt(7)+1;
+            number = randy.nextInt(8)+1;
             
             works = knighty.checkMove(number);
             
@@ -46,6 +46,7 @@ public class KnightDriver
             }
         
         knighty.print();
+        System.out.print("hello");
     }
 }
 
