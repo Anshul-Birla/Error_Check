@@ -25,7 +25,12 @@ public class KnightDriver
             
             moveCheck[number] = 1;
             
-            
+            if (works)
+            {
+                set();
+                move();
+            }
+            el
             //if it works, give boolean true 
             //if the previous boolean is still false, and
                //all numbers have been exhausted, give the main while 

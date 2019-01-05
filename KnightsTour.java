@@ -32,6 +32,8 @@ class KnightsTour
   protected int[][] masterBoard;
   private int lastMoveX;
   private int lastMoveY;
+  private int newX;
+  private int newY;
   
   public KnightsTour()
   {
@@ -44,10 +46,10 @@ class KnightsTour
    public boolean checkMove(int num)
    {
        boolean check = true;
-       int newX = lastMoveX + myHorizMove[num];
-       int newY = lastMoveY + myVertMove[num];
+       newX = lastMoveX + myHorizMove[num];
+       newY = lastMoveY + myVertMove[num];
        
-       if ( newX> 0 && newX <9)
+       if ( newX > 0 && newX <9)
             if( newY > 0 && newY <9)
                 check = true;
        
@@ -62,4 +64,17 @@ class KnightsTour
     {
         masterBoard[lastMoveX][lastMoveY] = number;
     }
-}
+    
+    public void set()
+    {
+        lastMoveX = newX;
+        lastMoveY = newY;
+    }
+    public int checkMoveNum(int [] moves)
+    {
+        int tot = 0;
+        for (int x = 0; x< moves.length();x++)
+            tot+=moves[x];
+            
+        return tot;
+    }
