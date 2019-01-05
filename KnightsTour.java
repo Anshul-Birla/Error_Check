@@ -38,13 +38,15 @@ class KnightsTour
   public KnightsTour()
   {
       masterBoard = new int[9][9];
-      
+      newX = 0;
+      newY = 0;
       lastMoveX = 1;
       lastMoveY = 1;
       move(1);
-}
-   public boolean checkMove(int num)
-   {
+    }
+  
+  public boolean checkMove(int num)
+  {
        boolean check = false;
        newX = lastMoveX + myHorizMove[num];
        newY = lastMoveY + myVertMove[num];
@@ -59,55 +61,55 @@ class KnightsTour
        
         return check;
        
-    }
+  }
     
-    public void move(int number)
-    {
-        masterBoard[lastMoveX][lastMoveY] = number;
-    }
+  public void move(int number)
+  {
+     masterBoard[lastMoveX][lastMoveY] = number;
+  }
     
-    public void set()
-    {
-        lastMoveX = newX;
-        lastMoveY = newY;
-    }
-    public int checkMoveNum(int [] moves)
-    {
-        int tot = 0;
-        for (int x = 0; x< moves.length;x++)
-            tot+=moves[x];
-            
-        return tot;
-    }
+  public void set()
+  {
+     lastMoveX = newX;
+     lastMoveY = newY;
+  }
+   
+  public int checkMoveNum(int [] moves)
+  {
+    int tot = 0;
     
-    public void print(int num)
-    {
-        System.out.print("     ");
+    for (int x = 0; x< moves.length;x++)
+        tot+=moves[x];
         
-       for(int x =1; x<9; x++)
-         {
-             System.out.print(Format.right(x,2));
-             System.out.print("  ");
-         }
+    return tot;
+  }
+    
+  public void print(int num)
+  {
+    System.out.print("     ");
+
+    for(int x =1; x<9; x++)
+     {
+       System.out.print(Format.right(x,2));
+       System.out.print("  ");
+     }
     
       System.out.println();
       System.out.println();
       
-      
-        for(int row = 1; row< 9; row++)
-        {
-            for (int co= 1; co<9; co++)
-            {
-                if (co ==1)
-                    System.out.print(Format.right(row,2) + " ");
-                
-                
-                System.out.print("  " + 
-                        Format.right((masterBoard[row][co]),2));
+    for(int row = 1; row< 9; row++)
+      {
+        for (int co= 1; co<9; co++)
+          {
+            if (co ==1)
+                System.out.print(Format.right(row,2) + " ");
+               
+            System.out.print("  " + 
+                Format.right((masterBoard[row][co]),2));
             }
-           System.out.println();
-           
+        System.out.println();  
         }
+        
         System.out.print(num+ " spaces were visited");
-}
+    }
 }

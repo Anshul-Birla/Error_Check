@@ -10,19 +10,20 @@ public class KnightDriver
 {
     public static void main(String [] args)
     {
+        Random randy = new Random();
+        KnightsTour knighty = new KnightsTour();
+        
         boolean mainCheck = true;
         boolean works = false;
-        Random randy = new Random();
         int[] moveCheck = new int [9];
         int number;
         int counter = 2;
-        KnightsTour knighty = new KnightsTour();
-        
+       
         moveCheck[0] = 1;
+        
           while(mainCheck)
         {
             number = randy.nextInt(8)+1;
-            
             works = knighty.checkMove(number);
             
             moveCheck[number] = 1;
@@ -31,10 +32,12 @@ public class KnightDriver
             {
                 knighty.set();
                 knighty.move(counter);
+                
                 for (int x = 1; x< moveCheck.length; x++)
                 {
                     moveCheck[x] = 0;
                 }
+                
                 counter++;
             }
             else
