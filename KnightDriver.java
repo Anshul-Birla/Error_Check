@@ -9,10 +9,15 @@ public class KnightDriver
 {
     public static void main(String [] args)
     {
-        while(//more moves can be made)
+        boolean mainCheck = true;
+        boolean works = false;
+        Random rand = new Random();
+        int number;
+        
+        while(mainCheck)
         {
-            //generate a random number
-            //check if it works
+            number = rand.randomInt(7)+1;
+            works = check(number);
             //if it works, give boolean true 
             //if the previous boolean is still false, and
                //all numbers have been exhausted, give the main while 
