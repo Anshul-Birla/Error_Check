@@ -82,6 +82,18 @@ class KnightsTour
     
     public void print()
     {
+        System.out.print("  ");
+        
+       for(int x =1; x<9; x++)
+         {
+             System.out.print(Format.right(x,2));
+             System.out.print("  ");
+         }
+    
+      System.out.println();
+      System.out.println();
+      
+      
         for(int co = 1; co< 9; co++)
         {
             for (int row = 1; row<9; row++)
