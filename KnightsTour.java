@@ -45,7 +45,7 @@ class KnightsTour
 }
    public boolean checkMove(int num)
    {
-       boolean check = true;
+       boolean check = false;
        newX = lastMoveX + myHorizMove[num];
        newY = lastMoveY + myVertMove[num];
        
