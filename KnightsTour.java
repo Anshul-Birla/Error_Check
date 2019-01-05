@@ -41,6 +41,7 @@ class KnightsTour
    */
   public KnightsTour()
   {
+      //initialize
       masterBoard = new int[9][9];
       newX = 0;
       newY = 0;
@@ -56,19 +57,24 @@ class KnightsTour
    */
   public boolean checkMove(int num)
   {
-       boolean check = false;
-       newX = lastMoveX + myHorizMove[num];
-       newY = lastMoveY + myVertMove[num];
+     //initial value for check
+     boolean check = false;
        
-       if ( newX > 0 && newX <9)
+     //sets the X and Y candidate values
+     newX = lastMoveX + myHorizMove[num];
+     newY = lastMoveY + myVertMove[num];
+       
+       //checks if new X and Y value are inbounds
+     if ( newX > 0 && newX <9)
             if( newY > 0 && newY <9)
                 check = true;
        
-       if(check)
+       //makes sure the candidate X and Y have not been used already
+     if(check)
            if(masterBoard[newX][newY] != 0)
                 check = false;
-       
-        return check;
+        
+     return check;
        
   }
   
@@ -79,6 +85,7 @@ class KnightsTour
    */
   public void move(int number)
   {
+     //moves the knight
      masterBoard[lastMoveX][lastMoveY] = number;
   }
   
@@ -88,6 +95,7 @@ class KnightsTour
    */
   public void set()
   {
+     //sets the last move X and Y to the new X and Y
      lastMoveX = newX;
      lastMoveY = newY;
   }
@@ -101,6 +109,7 @@ class KnightsTour
   {
     int tot = 0;
     
+    //loop to add up everything
     for (int x = 0; x< moves.length;x++)
         tot+=moves[x];
         
@@ -115,29 +124,35 @@ class KnightsTour
   public void print(int num)
   {
     System.out.print("     ");
-
+    
+    //prints out the numbers at the top
     for(int x =1; x<9; x++)
      {
        System.out.print(Format.right(x,2));
        System.out.print("  ");
      }
     
+     //neccessary for spacing
       System.out.println();
       System.out.println();
-      
+    
+    //traverse 2-D array
     for(int row = 1; row< 9; row++)
       {
         for (int co= 1; co<9; co++)
           {
+            //prints out numbers on side
             if (co ==1)
                 System.out.print(Format.right(row,2) + " ");
-               
+            
+            //prints out numbers inside array
             System.out.print("  " + 
                 Format.right((masterBoard[row][co]),2));
             }
         System.out.println();  
         }
-        
-        System.out.print(num+ " spaces were visited");
+     
+    //prints out the number of spaces visited  
+    System.out.print(num+ " spaces were visited");
     }
 }
