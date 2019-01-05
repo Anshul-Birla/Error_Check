@@ -1,4 +1,5 @@
-
+import chn.util.*;
+import java.util.Random;
 /**
  * Write a description of class KnightDriver here.
  *
@@ -11,25 +12,26 @@ public class KnightDriver
     {
         boolean mainCheck = true;
         boolean works = false;
-        Random rand = new Random();
+        Random randy = new Random();
         int[] moveCheck = new int [9];
         int number;
         int counter = 2;
+        KnightsTour knighty = new KnightsTour();
         
         moveCheck[0] = 1;
-        while(mainCheck)
+          while(mainCheck)
         {
-            number = rand.randomInt(7)+1;
+            number = randy.nextInt(7)+1;
             
-            works = checkMove(number);
+            works = knighty.checkMove(number);
             
             moveCheck[number] = 1;
             
             if (works)
             {
-                set();
-                move(counter);
-                for (int x = 1; x< moveCheck.length(); x++)
+                knighty.set();
+                knighty.move(counter);
+                for (int x = 1; x< moveCheck.length; x++)
                 {
                     moveCheck[x] = 0;
                 }
@@ -37,8 +39,8 @@ public class KnightDriver
             }
             else
             {
-                if(checkMoveNum == 9)
-                    mainCheck = false
+                if(knighty.checkMoveNum(moveCheck) == 9)
+                    mainCheck = false;
                 }
             
             }

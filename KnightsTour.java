@@ -73,8 +73,9 @@ class KnightsTour
     public int checkMoveNum(int [] moves)
     {
         int tot = 0;
-        for (int x = 0; x< moves.length();x++)
+        for (int x = 0; x< moves.length;x++)
             tot+=moves[x];
             
         return tot;
     }
+}
