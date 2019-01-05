@@ -35,7 +35,12 @@ class KnightsTour
   public KnightsTour()
   {
       masterBoard = new int[9][9];
-      moveCheck = new int [8];
-      
-    
+      moveCheck = new int [8];   
+}
+   private checkMove()
+   {
+       
+       
+       
+    }
 }
