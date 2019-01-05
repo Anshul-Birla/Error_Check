@@ -45,8 +45,7 @@ public class KnightDriver
             
             }
         
-        knighty.print();
-        System.out.print("hello");
+        knighty.print(counter);
     }
 }
 

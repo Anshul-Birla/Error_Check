@@ -80,9 +80,9 @@ class KnightsTour
         return tot;
     }
     
-    public void print()
+    public void print(int num)
     {
-        System.out.print("  ");
+        System.out.print("     ");
         
        for(int x =1; x<9; x++)
          {
@@ -94,14 +94,20 @@ class KnightsTour
       System.out.println();
       
       
-        for(int co = 1; co< 9; co++)
+        for(int row = 1; row< 9; row++)
         {
-            for (int row = 1; row<9; row++)
+            for (int co= 1; co<9; co++)
             {
+                if (co ==1)
+                    System.out.print(Format.right(row,2) + " ");
+                
+                
                 System.out.print("  " + 
-                        Format.right((masterBoard[co][row]),2));
+                        Format.right((masterBoard[row][co]),2));
             }
            System.out.println();
+           
         }
+        System.out.print(num+ " spaces were visited");
 }
 }
