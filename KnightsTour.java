@@ -29,6 +29,13 @@ class KnightsTour
 {
   protected int[] myHorizMove = {0, 1, 2, 2, 1, -1, -2, -2, -1};
   protected int[] myVertMove = {0, -2, -1, 1, 2, 2, 1, -1, -2};
+  protected int[][] masterBoard;
+  protected int[] moveCheck;
   
+  public KnightsTour()
+  {
+      masterBoard = new int[9][9];
+      moveCheck = new int [8];
+      
     
 }
