@@ -153,6 +153,6 @@ class KnightsTour
         }
      
     //prints out the number of spaces visited  
-    System.out.print(num+ " spaces were visited");
+    System.out.print((num-1)+ " spaces were visited");
     }
 }
