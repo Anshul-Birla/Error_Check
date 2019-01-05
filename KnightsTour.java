@@ -27,14 +27,18 @@ import apcslib.*;
 */
 class KnightsTour
 {
-  protected int[] myHorizMove = {0, 1, 2, 2, 1, -1, -2, -2, -1};
-  protected int[] myVertMove = {0, -2, -1, 1, 2, 2, 1, -1, -2};
-  protected int[][] masterBoard;
-  private int lastMoveX;
-  private int lastMoveY;
-  private int newX;
-  private int newY;
+  protected int[] myHorizMove = {0, 1, 2, 2, 1, -1, -2, -2, -1}; //see above
+  protected int[] myVertMove = {0, -2, -1, 1, 2, 2, 1, -1, -2}; //see above
+  protected int[][] masterBoard; //this keeps track of the knight's path
+  private int lastMoveX; //holds value for the x coordinate for the last move
+  private int lastMoveY; //holds value for the y coordinate for the last move
+  private int newX; //x coordinate for the new x candidate
+  private int newY; //y coordinate for the new x candidate
   
+  /**
+   * Constructor for KnightsTour object
+   * 
+   */
   public KnightsTour()
   {
       masterBoard = new int[9][9];
@@ -43,8 +47,13 @@ class KnightsTour
       lastMoveX = 1;
       lastMoveY = 1;
       move(1);
-    }
+  }
   
+  /**
+   * This checks if the move provided is legal or not 
+   * @param num               number of move that needs checking for legality
+   * @return check            true/false value for legality
+   */
   public boolean checkMove(int num)
   {
        boolean check = false;
@@ -62,18 +71,32 @@ class KnightsTour
         return check;
        
   }
-    
+  
+  /**
+   * This moves the piece to a spot and inputs move number in the spot
+   * @param number               the number of the move when the 
+   *                             piece got to the spot
+   */
   public void move(int number)
   {
      masterBoard[lastMoveX][lastMoveY] = number;
   }
-    
+  
+  /**
+   * Helper method that sets lastMoveX and lastMoveY to their
+   * new values should it be needed
+   */
   public void set()
   {
      lastMoveX = newX;
      lastMoveY = newY;
   }
-   
+  
+  /**
+   * This adds up all the values in a given array and outputs it
+   * @param moves             array that needs adding
+   * @return tot              value of the sum
+   */
   public int checkMoveNum(int [] moves)
   {
     int tot = 0;
@@ -83,7 +106,12 @@ class KnightsTour
         
     return tot;
   }
-    
+  
+  /**
+   * This outputs the result
+   * @param num          the number of moves it took the knight to finally 
+   *                     fail
+   */
   public void print(int num)
   {
     System.out.print("     ");
