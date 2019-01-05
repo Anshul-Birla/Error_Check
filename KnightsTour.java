@@ -30,16 +30,16 @@ class KnightsTour
   protected int[] myHorizMove = {0, 1, 2, 2, 1, -1, -2, -2, -1};
   protected int[] myVertMove = {0, -2, -1, 1, 2, 2, 1, -1, -2};
   protected int[][] masterBoard;
-  protected int[] moveCheck;
   private int lastMoveX;
   private int lastMoveY;
   
   public KnightsTour()
   {
       masterBoard = new int[9][9];
-      moveCheck = new int [8];
+      
       lastMoveX = 1;
       lastMoveY = 1;
+      move(1);
 }
    public boolean checkMove(int num)
    {
@@ -56,5 +56,10 @@ class KnightsTour
        
         return check;
        
+    }
+    
+    public void move(int number)
+    {
+        masterBoard[lastMoveX][lastMoveY] = number;
     }
 }
