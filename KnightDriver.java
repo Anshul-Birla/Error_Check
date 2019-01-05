@@ -44,6 +44,8 @@ public class KnightDriver
                 }
             
             }
+        
+        knighty.print();
     }
 }
 

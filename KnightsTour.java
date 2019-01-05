@@ -53,8 +53,9 @@ class KnightsTour
             if( newY > 0 && newY <9)
                 check = true;
        
-       if(masterBoard[newX][newY] != 0)
-        check = false;
+       if(check)
+           if(masterBoard[newX][newY] != 0)
+                check = false;
        
         return check;
        
@@ -78,4 +79,16 @@ class KnightsTour
             
         return tot;
     }
+    
+    public void print()
+    {
+        for(int co = 1; co< 9; co++)
+        {
+            for (int row = 1; row<9; row++)
+            {
+                System.out.print(" " + masterBoard[co][row]);
+            }
+           System.out.println();
+        }
+}
 }
