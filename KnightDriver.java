@@ -28,11 +28,12 @@ public class KnightDriver
             if (works)
             {
                 set();
-                move();
+                move(counter);
                 for (int x = 1; x< moveCheck.length(); x++)
                 {
                     moveCheck[x] = 0;
                 }
+                counter++;
             }
             else
             {
