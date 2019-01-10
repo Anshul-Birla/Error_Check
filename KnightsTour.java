@@ -52,35 +52,6 @@ class KnightsTour
   }
   
   /**
-   * This checks if the move provided is legal or not 
-   * @param num               number of move that needs checking for legality
-   * @return check            true/false value for legality
-   */
-  public boolean checkMove(int num)
-  {
-     //initial value for check
-     boolean check = false;
-       
-     //sets the X and Y candidate values
-     newX = lastMoveX + myHorizMove[num];
-     newY = lastMoveY + myVertMove[num];
-       
-       //checks if new X and Y value are inbounds
-     if ( newX > 0 && newX <9)
-            if( newY > 0 && newY <9)
-                check = true;
-       
-       //makes sure the candidate X and Y have not been used already
-     if(check)
-           if(masterBoard[newX][newY] != 0)
-                check = false;
-        
-     return check;
-       
-  }
-  
-  
-  /**
    * This moves the piece to a spot and inputs move number in the spot
    * @param number               the number of the move when the 
    *                             piece got to the spot
@@ -93,20 +64,12 @@ class KnightsTour
      masterBoard[lastMoveX][lastMoveY] = number;
   }
   
-  
- 
-  public int checkMoveNum(int [] moves)
-  {
-    int tot = 0;
-    
-    //loop to add up everything
-    for (int x = 0; x< moves.length;x++)
-        tot+=moves[x];
-        
-    return tot;
-  }
-  
-  public int randomizer()
+  /**
+   * This method outputs either a move number that is garunteed to work or 9, which
+   * indicates no moves are possible 
+   * @return returner         the move identifier or the numbr 9
+   */
+   public int randomizer()
   {
       int number;
       int returner = 0;
@@ -118,43 +81,38 @@ class KnightsTour
       moveCheck[0] = 1;
       while(check)
       {
+          //generate random int
           number = randy.nextInt(8)+1;
+          
+          //check if it works
           works = this.checkMove(number);
+          
           moveCheck[number] = 1;
           
           if(works)
-          {
+          { 
+              //if it works, end the loop and output the number
               returner = number;
               check = false;
+              
+              //flush the counting array
               moveCheck = this.flush(moveCheck);
             }
           else
           {
               if(this.checkMoveNum(moveCheck) == 9)
               {
+                  //if all possible ways have been exhausted return 9 and end loop
                   returner = 9;
                   check = false;
                 }
             }
-          
-      
-       
+         
     }
      return returner;
-}
-
-  public int [] flush(int [] array)
-  {
-       for (int x = 1; x< array.length; x++)
-       {
-                    array[x] = 0;
-       }
-      
-      return array;
     }
-  
-    
-  /**
+
+ /**
    * This outputs the result
    * @param num          the number of moves it took the knight to finally 
    *                     fail
@@ -202,4 +160,60 @@ class KnightsTour
      lastMoveY = newY;
   }
   
+  
+  /*
+   * This checks if the move candidate is legal for the knight to make
+   * and outputs the decision in the form of a boolean
+   */
+  private boolean checkMove(int num)
+  {
+     //initial value for check
+     boolean check = false;
+       
+     //sets the X and Y candidate values
+     newX = lastMoveX + myHorizMove[num];
+     newY = lastMoveY + myVertMove[num];
+       
+       //checks if new X and Y value are inbounds
+     if ( newX > 0 && newX <9)
+            if( newY > 0 && newY <9)
+                check = true;
+       
+       //makes sure the candidate X and Y have not been used already
+     if(check)
+           if(masterBoard[newX][newY] != 0)
+                check = false;
+        
+     return check;
+       
+  }
+  
+ /*
+  * This method totals all the elements in an array
+  */
+  private int checkMoveNum(int [] moves)
+  {
+    int tot = 0;
+    
+    //loop to add up everything
+    for (int x = 0; x< moves.length;x++)
+        tot+=moves[x];
+        
+    return tot;
+  }
+  
+ 
+/*
+ * This method flushes an array back to zeroes
+ */
+  private int [] flush(int [] array)
+  {
+       for (int x = 1; x< array.length; x++)
+       {
+                    array[x] = 0;
+       }
+      
+      return array;
+    }
+ 
 }
