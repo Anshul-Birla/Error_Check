@@ -85,15 +85,13 @@ class KnightsTour
    */
   public void move(int number)
   {
+     this.set();
+     
      //moves the knight
      masterBoard[lastMoveX][lastMoveY] = number;
   }
   
-  /**
-   * Helper method that sets lastMoveX and lastMoveY to their
-   * new values should it be needed
-   */
-  public void set()
+  private void set()
   {
      //sets the last move X and Y to the new X and Y
      lastMoveX = newX;
@@ -115,6 +113,16 @@ class KnightsTour
         
     return tot;
   }
+  
+  public int [] flush(int [] array)
+  {
+       for (int x = 1; x< array.length; x++)
+       {
+                    array[x] = 0;
+       }
+      
+      return array;
+    }
   
   /**
    * This outputs the result

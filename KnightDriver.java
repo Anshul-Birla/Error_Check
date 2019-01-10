@@ -37,15 +37,12 @@ public class KnightDriver
             
             if (works)
             {
-                //both work in tandem to move the knight
-                knighty.set();
+                // move the knight
                 knighty.move(counter);
                 
                 //flushes the moveCheck array
-                for (int x = 1; x< moveCheck.length; x++)
-                {
-                    moveCheck[x] = 0;
-                }
+               
+                moveCheck = knighty.flush(moveCheck);
                 
                 //increment counter
                 counter++;
