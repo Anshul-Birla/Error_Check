@@ -1,4 +1,5 @@
 import apcslib.*;
+import java.util.Random;
 /**
  * Necessary methods for the KnightsTour to run
  *
@@ -78,6 +79,7 @@ class KnightsTour
        
   }
   
+  
   /**
    * This moves the piece to a spot and inputs move number in the spot
    * @param number               the number of the move when the 
@@ -91,18 +93,8 @@ class KnightsTour
      masterBoard[lastMoveX][lastMoveY] = number;
   }
   
-  private void set()
-  {
-     //sets the last move X and Y to the new X and Y
-     lastMoveX = newX;
-     lastMoveY = newY;
-  }
   
-  /**
-   * This adds up all the values in a given array and outputs it
-   * @param moves             array that needs adding
-   * @return tot              value of the sum
-   */
+ 
   public int checkMoveNum(int [] moves)
   {
     int tot = 0;
@@ -114,6 +106,43 @@ class KnightsTour
     return tot;
   }
   
+  public int randomizer()
+  {
+      int number;
+      int returner = 0;
+      int[] moveCheck = new int [9];
+      boolean check = true;
+      boolean works;
+      Random randy = new Random();
+      
+      moveCheck[0] = 1;
+      while(check)
+      {
+          number = randy.nextInt(8)+1;
+          works = this.checkMove(number);
+          moveCheck[number] = 1;
+          
+          if(works)
+          {
+              returner = number;
+              check = false;
+              moveCheck = this.flush(moveCheck);
+            }
+          else
+          {
+              if(this.checkMoveNum(moveCheck) == 9)
+              {
+                  returner = 9;
+                  check = false;
+                }
+            }
+          
+      
+       
+    }
+     return returner;
+}
+
   public int [] flush(int [] array)
   {
        for (int x = 1; x< array.length; x++)
@@ -124,6 +153,7 @@ class KnightsTour
       return array;
     }
   
+    
   /**
    * This outputs the result
    * @param num          the number of moves it took the knight to finally 
@@ -163,4 +193,13 @@ class KnightsTour
     //prints out the number of spaces visited  
     System.out.print((num-1)+ " spaces were visited");
     }
+    
+    
+     private void set()
+  {
+     //sets the last move X and Y to the new X and Y
+     lastMoveX = newX;
+     lastMoveY = newY;
+  }
+  
 }

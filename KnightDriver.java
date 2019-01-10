@@ -16,40 +16,29 @@ public class KnightDriver
         
         //initialize
         boolean mainCheck = true;
-        boolean works = false;
-        int[] moveCheck = new int [9];
         int number;
         int counter = 2;
        
-        moveCheck[0] = 1;
+       
         
         //master loop
           while(mainCheck)
         {
-            //generates random integer
-            number = randy.nextInt(8)+1;
+            //gets a number that is garunteed to work OR will terminate the loop
+            number = knighty.randomizer();
             
-            //checks if the move works 
-            works = knighty.checkMove(number);
-            
-            //record the number has been used in this iteration
-            moveCheck[number] = 1;
-            
-            if (works)
+            if (number != 9)
             {
                 // move the knight
                 knighty.move(counter);
-                
-                //flushes the moveCheck array
-                moveCheck = knighty.flush(moveCheck);
-                
+               
                 //increment counter
                 counter++;
             }
             else
             {
                 //if all numbers have been used, terminate the while loop
-                if(knighty.checkMoveNum(moveCheck) == 9)
+                if(number == 9)
                     mainCheck = false;
              }
             
