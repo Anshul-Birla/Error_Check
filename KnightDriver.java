@@ -41,7 +41,6 @@ public class KnightDriver
                 knighty.move(counter);
                 
                 //flushes the moveCheck array
-               
                 moveCheck = knighty.flush(moveCheck);
                 
                 //increment counter
