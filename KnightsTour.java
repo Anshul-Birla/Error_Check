@@ -76,13 +76,13 @@ class KnightsTour
       int[] moveCheck = new int [9];
       boolean check = true;
       boolean works;
-      Random randy = new Random();
+      
       
       moveCheck[0] = 1;
       while(check)
       {
           //generate random int
-          number = randy.nextInt(8)+1;
+          number = (int )(Math.random() * 8 + 1);
           
           //check if it works
           works = this.checkMove(number);

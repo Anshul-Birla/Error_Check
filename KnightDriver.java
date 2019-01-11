@@ -11,7 +11,6 @@ public class KnightDriver
     public static void main(String [] args)
     {
         //constructors
-        Random randy = new Random();
         KnightsTour knighty = new KnightsTour();
         
         //initialize
